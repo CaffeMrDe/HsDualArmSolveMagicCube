@@ -10,7 +10,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = HsDualArmSolveMagicCube
 TEMPLATE = app
-
+CONFIG +=c++11
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -34,18 +34,17 @@ include(env/env.pro)
 
 SOURCES += \
         main.cpp \
-        src/graspbasefunc.cpp \
         ros/hiropservernode.cpp \
         ros/hiroptopicnode.cpp \
         src/grasptargetonshelftask.cpp \
         src/grasptargetondestoptask.cpp \
         rubikcube/rubikcubepasrse.cpp \
     HsRobot/hsrobotfunproxy.cpp \
-    rubikcube/rubikcubeopertask.cpp
+    rubikcube/rubikcubeopertask.cpp \
+    src/robotmovegroupbasefun.cpp \
+    tools/safecontrol.cpp
 
 HEADERS += \
-        include/graspbaseimpl.h \
-        include/graspbasefunc.h \
         ros/hiropservernode.h \
         ros/hiroptopicnode.h \
         ros/hiropsinglehandler.h \
@@ -58,9 +57,14 @@ HEADERS += \
         rubikcube/cameracontrol.h \
         rubikcube/rubikcubepasrse.h \
     rubikcube/rubikcubeexcu.h \
-    HsRobot/hsrobotdualsinglehandler.h \
     HsRobot/hsrobotfunproxy.h \
-    rubikcube/rubikcubeopertask.h
+    rubikcube/rubikcubeopertask.h \
+    include/robotmovegroupbaseimpl.h \
+    include/robotmovegroupbasefun.h \
+    src/robotmovegroupmanager.h \
+    include/glocalvar.h \
+    tools/safecontrol.h \
+    HsRobot/hsrobotdualsinglemanager.h
 
 SOURCES += \
         ui/hsmainwindow.cpp \

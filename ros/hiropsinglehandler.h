@@ -6,15 +6,20 @@ class hiropSingleHandler{
 private:
     hiropSingleHandler();
 public:
-     static hiropSingleHandler  *getInstance(){
-        if(hiropSingleHandlerPtr == nullptr)
-            hiropSingleHandlerPtr = new hiropSingleHandler();
-        return hiropSingleHandlerPtr;
-    }
+     static std::shared_ptr<hiropTopicNode>  getTopicInstance(){
+        if(hiropTopicNodePtr == nullptr)
+            hiropTopicNodePtr = std::make_shared<hiropTopicNode>();
+        return hiropTopicNodePtr;
+     }
+
+     static std::shared_ptr<hiropServerNode>  getServiceInstance(){
+        if(hiropServerNodePtr == nullptr)
+            hiropServerNodePtr = std::make_shared<hiropServerNode>();
+        return hiropServerNodePtr;
+     }
 
 private:
-    std::shared_ptr<hiropTopicNode> hiropTopicNodePtr;
-    std::shared_ptr<hiropServerNode> hiropServerNodePtr;
-    static hiropSingleHandler *hiropSingleHandlerPtr;
+    static std::shared_ptr<hiropTopicNode> hiropTopicNodePtr;
+    static std::shared_ptr<hiropServerNode> hiropServerNodePtr;
 };
 

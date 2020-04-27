@@ -1,15 +1,12 @@
 #ifndef HSROBOTDUALSINGLECONTROL_H
 #define HSROBOTDUALSINGLECONTROL_H
 #include "hsrobotfunproxy.h"
-enum robotType{
-    Left,
-    Right,
-};
 
-class hsRobotDualSingleHandler
+
+class hsRobotDualSingleManager
 {
 public:
-    hsRobotDualSingleHandler();
+    hsRobotDualSingleManager();
 
 };
 
