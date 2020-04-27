@@ -1,12 +1,12 @@
 #ifndef HIROPSERVERSINGLENODE_H
 #define HIROPSERVERSINGLENODE_H
-
-
-class hiropServerSingleNode
+#include <memory>
+using namespace std;
+class hiropServerNode
 {
-
-private:
-    hiropServerSingleNode();
+public:
+    hiropServerNode();
+// service
 
 };
 

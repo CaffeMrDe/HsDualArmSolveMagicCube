@@ -23,22 +23,58 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 INCLUDEPATH += include \
+               ros \
                 ui     \
+                src     \
+                usr/local/include/glog \
+                rubikcube \
+
+
+include(env/env.pro)
 
 SOURCES += \
         main.cpp \
+        src/graspbasefunc.cpp \
+        ros/hiropservernode.cpp \
+        ros/hiroptopicnode.cpp \
+        src/grasptargetonshelftask.cpp \
+        src/grasptargetondestoptask.cpp \
+        rubikcube/rubikcubepasrse.cpp \
+    HsRobot/hsrobotfunproxy.cpp \
+    rubikcube/rubikcubeopertask.cpp
+
+HEADERS += \
+        include/graspbaseimpl.h \
+        include/graspbasefunc.h \
+        ros/hiropservernode.h \
+        ros/hiroptopicnode.h \
+        ros/hiropsinglehandler.h \
+        include/grasptargetonshelftask.h \
+        include/grasptargetondestoptask.h \
+        include/taskexcuimpl.h \
+        include/taskexcufactory.h \
+        rubikcube/cubeimageprocessimpl.h \
+        rubikcube/cubepasrsealogrithmimpl.h \
+        rubikcube/cameracontrol.h \
+        rubikcube/rubikcubepasrse.h \
+    rubikcube/rubikcubeexcu.h \
+    HsRobot/hsrobotdualsinglehandler.h \
+    HsRobot/hsrobotfunproxy.h \
+    rubikcube/rubikcubeopertask.h
+
+SOURCES += \
         ui/hsmainwindow.cpp \
-    src/graspbasefunc.cpp \
-    hiropserversinglenode.cpp
 
 HEADERS += \
         ui/hsmainwindow.h \
-    include/graspbaseimpl.h \
-    src/graspbasefunc.h \
-    hiropserversinglenode.h
 
 FORMS += \
         ui/hsmainwindow.ui
 
+include(env/fileCfg.pro)
+
 DISTFILES += \
     README.md
+
+SUBDIRS += \
+    env/env.pro
